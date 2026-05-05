@@ -1,0 +1,52 @@
+{
+  "gameId": "spider",
+  "displayName": "Spider Solitaire",
+  "version": "1.0.0",
+  "decks": 2,
+  "suits": ["spades", "hearts", "clubs", "diamonds"],
+  "cardValues": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+  "piles": {
+    "stock": {
+      "count": 1,
+      "initialCards": "remaining",
+      "faceUp": false
+    },
+    "foundations": {
+      "count": 8,
+      "buildRule": "ascending-same-suit",
+      "startsWith": 1,
+      "initialCards": 0
+    },
+    "tableau": {
+      "count": 10,
+      "buildRule": "descending-any-suit",
+      "emptyColumnRule": "any",
+      "initialCards": "pattern",
+      "dealPattern": [6, 6, 6, 6, 5, 5, 5, 5, 5, 5],
+      "topCardFaceUp": true
+    }
+  },
+  "winCondition": {
+    "type": "all-to-foundations"
+  },
+  "scoring": {
+    "tableauToFoundation": 100,
+    "timePenaltyInterval": 10,
+    "timePenaltyAmount": 1,
+    "timePenaltyGracePeriod": 60
+  },
+  "layout": {
+    "type": "spider-standard",
+    "topRow": [
+      "stock",
+      "gap",
+      "foundation", "foundation", "foundation", "foundation",
+      "foundation", "foundation", "foundation", "foundation"
+    ],
+    "bottomRows": ["tableau"]
+  },
+  "assets": {
+    "cardBack": "classic-blue",
+    "cardFaceTheme": "standard"
+  }
+}
