@@ -33,13 +33,15 @@ export class GameEngine {
     const deck = shuffleDeck(buildDeck(this.config.decks ?? 1));
     const tableauCount = this.config.piles.tableau?.count ?? 7;
     const foundationCount = this.config.piles.foundations?.count ?? 4;
+    const dealPattern = this.config.piles.tableau?.dealPattern;
 
     const tableau: Card[][] = [];
     let deckIndex = 0;
 
     for (let col = 0; col < tableauCount; col++) {
       const column: Card[] = [];
-      const cardCount = col + 1;
+      // Use explicit dealPattern if provided, otherwise fall back to col+1 (Klondike)
+      const cardCount = dealPattern ? dealPattern[col] : col + 1;
       for (let i = 0; i < cardCount; i++) {
         const card = { ...deck[deckIndex++], faceUp: i === cardCount - 1 };
         column.push(card);

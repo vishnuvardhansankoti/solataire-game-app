@@ -2,6 +2,7 @@ import type { BuildRuleStrategy } from './BuildRuleStrategy';
 import { AscendingSameSuitStrategy } from './AscendingSameSuitStrategy';
 import { DescendingAlternatingColorStrategy } from './DescendingAlternatingColorStrategy';
 import { DescendingSameSuitStrategy } from './DescendingSameSuitStrategy';
+import { DescendingAnySuitStrategy } from './DescendingAnySuitStrategy';
 import { AnyStrategy } from './AnyStrategy';
 import { NoneStrategy } from './NoneStrategy';
 
@@ -9,6 +10,7 @@ export type BuildRuleId =
   | 'ascending-same-suit'
   | 'descending-alternating-color'
   | 'descending-same-suit'
+  | 'descending-any-suit'
   | 'any'
   | 'none';
 
@@ -16,6 +18,7 @@ const registry: Record<BuildRuleId, BuildRuleStrategy> = {
   'ascending-same-suit': new AscendingSameSuitStrategy(),
   'descending-alternating-color': new DescendingAlternatingColorStrategy(),
   'descending-same-suit': new DescendingSameSuitStrategy(),
+  'descending-any-suit': new DescendingAnySuitStrategy(),
   'any': new AnyStrategy(),
   'none': new NoneStrategy(),
 };

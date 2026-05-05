@@ -15,6 +15,8 @@ export interface PileConfig {
   emptyColumnRule?: string;
   startsWith?: number;
   initialCards?: number | string;
+  /** Per-column card counts for non-standard deals (e.g. Spider: [6,6,6,6,5,5,5,5,5,5]). */
+  dealPattern?: number[];
   faceUp?: boolean;
   topCardFaceUp?: boolean;
 }
