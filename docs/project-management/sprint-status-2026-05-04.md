@@ -28,6 +28,8 @@
 - [x] Developer: full SvelteKit + TypeScript app (`src/`), CI/CD, 6 Vitest unit test files
 - [x] QA: test plan, 5 integration tests, 2 Playwright E2E test files, `test-results.md` sign-off
 - [x] Orchestrator: `context.md`, `timeline.md`, sprint status finalized
+- [x] **Hotfix**: `fix(build)` — `sveltekit` import corrected in `vite.config.ts` (commit `365aff6`)
+- [x] **Hotfix**: `fix(ssr)` — `document` + `localStorage` guarded from SSR context (commit `01bb84e`)
 - [x] Repo pushed to GitHub with `package-lock.json`, `.gitignore`, `README.md`
 
 ## In Progress

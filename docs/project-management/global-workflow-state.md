@@ -38,21 +38,32 @@
 | Document | Path | Status |
 |---|---|---|
 | PRD | `docs/PRD.md` | ✅ Complete |
-| Problem Statement | `docs/requirements/problem-statement.md` | ⏳ |
-| User Stories (Gameplay) | `docs/requirements/user-stories-core-gameplay.md` | ⏳ |
-| User Stories (PWA/Offline) | `docs/requirements/user-stories-pwa-offline.md` | ⏳ |
-| User Stories (Engine) | `docs/requirements/user-stories-game-engine.md` | ⏳ |
-| User Stories (Accessibility) | `docs/requirements/user-stories-accessibility.md` | ⏳ |
-| Acceptance Criteria | `docs/requirements/acceptance-criteria.md` | ⏳ |
-| ADR-001 | `docs/architecture/ADR-001-sveltekit-adapter-static.md` | ⏳ |
-| ADR-002 | `docs/architecture/ADR-002-generic-card-game-engine.md` | ⏳ |
-| ADR-003 | `docs/architecture/ADR-003-pwa-service-worker-workbox.md` | ⏳ |
-| ADR-004 | `docs/architecture/ADR-004-state-persistence.md` | ⏳ |
-| System Architecture | `docs/architecture/system-architecture.md` | ⏳ |
-| GameConfig Schema | `docs/schema/game-config.schema.json` | ⏳ |
-| GameState Schema | `docs/schema/game-state.schema.json` | ⏳ |
-| PR Summary | `docs/project-management/PR_SUMMARY.md` | ⏳ |
-| Test Results | `docs/project-management/test-results.md` | ⏳ |
+| Problem Statement | `docs/requirements/problem-statement.md` | ✅ Complete |
+| User Stories (Gameplay) | `docs/requirements/user-stories-core-gameplay.md` | ✅ Complete |
+| User Stories (PWA/Offline) | `docs/requirements/user-stories-pwa-offline.md` | ✅ Complete |
+| User Stories (Engine) | `docs/requirements/user-stories-game-engine.md` | ✅ Complete |
+| User Stories (Accessibility) | `docs/requirements/user-stories-accessibility.md` | ✅ Complete |
+| Acceptance Criteria | `docs/requirements/acceptance-criteria.md` | ✅ Complete [Final] |
+| ADR-001 | `docs/architecture/ADR-001-sveltekit-adapter-static.md` | ✅ Complete |
+| ADR-002 | `docs/architecture/ADR-002-generic-card-game-engine.md` | ✅ Complete |
+| ADR-003 | `docs/architecture/ADR-003-pwa-service-worker-workbox.md` | ✅ Complete |
+| ADR-004 | `docs/architecture/ADR-004-state-persistence.md` | ✅ Complete |
+| System Architecture | `docs/architecture/system-architecture.md` | ✅ Complete |
+| GameConfig Schema | `docs/schema/game-config.schema.json` | ✅ Complete |
+| GameState Schema | `docs/schema/game-state.schema.json` | ✅ Complete |
+| PR Summary | `docs/project-management/PR_SUMMARY.md` | ✅ Complete |
+| Test Results | `docs/project-management/test-results.md` | ✅ Complete |
+| Context | `docs/project-management/context.md` | ✅ Complete |
+| Timeline | `docs/project-management/timeline.md` | ✅ Complete |
+
+---
+
+## Post-Sprint Hotfixes (2026-05-04)
+
+| Fix | Commit | Agent |
+|---|---|---|
+| `fix(build)`: `sveltekit` imported from wrong package in `vite.config.ts` | `365aff6` | Developer |
+| `fix(ssr)`: `document` and `localStorage` accessed outside browser context | `01bb84e` | Developer |
 
 ---
 
