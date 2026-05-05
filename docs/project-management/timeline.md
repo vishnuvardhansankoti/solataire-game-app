@@ -19,7 +19,8 @@
 | 6 | Orchestrator | Developer | Sprint 2 Task 1: Spider Solitaire | 2026-05-04T00:06:00Z | — |
 | 7 | Developer | QA | Spider Solitaire feature complete + 26 new unit tests | 2026-05-05T02:40:00Z | `src/games/spider/config.json`, `src/engine/strategies/DescendingAnySuitStrategy.ts`, `tests/unit/spider-config.spec.ts`, `feature/spider-solitaire` branch |
 | 8 | QA | Orchestrator | Spider Solitaire PR #1 merged to main | 2026-05-05T02:45:00Z | PR #1 + merged commit `ed947b2` |
-| 9 | Orchestrator | Analyst | Sprint 2 Task 2: FreeCell scoping | 2026-05-05T02:45:00Z | `HANDOFF.md` (FreeCell requirements)
+| 9 | Orchestrator | Analyst | Sprint 2 Task 2: FreeCell scoping | 2026-05-05T02:45:00Z | `HANDOFF.md` (FreeCell requirements) |
+| 10 | Analyst | Architect | `freecell-acceptance-criteria.md` marked [Final] | 2026-05-05T02:55:00Z | `freecell-problem-statement.md`, `freecell-user-stories.md` (7 stories), `freecell-acceptance-criteria.md` (13 criteria) |
 
 ---
 
@@ -27,9 +28,9 @@
 
 | Field | Value |
 |---|---|
-| Current Owner | Analyst |
-| Phase | Sprint 2 Task 2: FreeCell — Discovery |
-| Next Action | Create freecell user stories + acceptance criteria [Final] |
+| Current Owner | Architect |
+| Phase | Sprint 2 Task 2: FreeCell — Design |
+| Next Action | Create FreeCell config schema (ADR or freecell-config-schema.md), define pile types and strategies |
 
 ---
 

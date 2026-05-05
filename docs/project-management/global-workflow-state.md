@@ -15,14 +15,15 @@
 | 3 — Development | Developer | ✅ Complete | `src/` |
 | 4 — Testing | QA | ✅ Complete | `tests/` |
 | **Sprint 2 Task 1 — Spider Solitaire** | **QA** | ✅ Complete | `src/games/spider/` |
-| **Sprint 2 Task 2 — FreeCell** | **Analyst** | 🔄 In Progress | `docs/requirements/freecell/` |
+| **Sprint 2 Task 2 — FreeCell (Analyst)** | **Analyst** | ✅ Complete | `docs/requirements/freecell-*` |
+| **Sprint 2 Task 2 — FreeCell (Design)** | **Architect** | 🔄 In Progress | `docs/architecture/` |
 
 ---
 
 ## Token Holder
-**Current Agent:** Analyst  
-**Phase:** Sprint 2 Task 2 — FreeCell  
-**Trigger to advance:** `docs/requirements/freecell-acceptance-criteria.md` marked [Final] + user stories → hand to Architect
+**Current Agent:** Architect  
+**Phase:** Sprint 2 Task 2 — FreeCell Schema Design  
+**Trigger to advance:** FreeCell schema approved (ADR or freecell-config-schema.md) → hand to Developer
 
 ---
 
