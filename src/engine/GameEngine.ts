@@ -37,13 +37,16 @@ export class GameEngine {
 
     const tableau: Card[][] = [];
     let deckIndex = 0;
+    /** When true, every dealt card is face-up (e.g. FreeCell). Otherwise only the top card is revealed. */
+    const allFaceUp = this.config.piles.tableau?.faceUp === true;
 
     for (let col = 0; col < tableauCount; col++) {
       const column: Card[] = [];
       // Use explicit dealPattern if provided, otherwise fall back to col+1 (Klondike)
       const cardCount = dealPattern ? dealPattern[col] : col + 1;
       for (let i = 0; i < cardCount; i++) {
-        const card = { ...deck[deckIndex++], faceUp: i === cardCount - 1 };
+        const isFaceUp = allFaceUp || i === cardCount - 1;
+        const card = { ...deck[deckIndex++], faceUp: isFaceUp };
         column.push(card);
       }
       tableau.push(column);
@@ -51,6 +54,10 @@ export class GameEngine {
 
     const foundations: Card[][] = Array.from({ length: foundationCount }, () => []);
     const stock = deck.slice(deckIndex).map((c) => ({ ...c, faceUp: false }));
+
+    // Initialize free cell slots (null = empty slot)
+    const freeCellCount = this.config.piles.freeCells?.count ?? 0;
+    const freeCells: Array<Card | null> = Array.from({ length: freeCellCount }, () => null);
 
     return {
       schemaVersion: SCHEMA_VERSION,
@@ -60,6 +67,7 @@ export class GameEngine {
       waste: [],
       foundations,
       tableau,
+      freeCells,
       score: 0,
       moves: 0,
       elapsedSeconds: 0,

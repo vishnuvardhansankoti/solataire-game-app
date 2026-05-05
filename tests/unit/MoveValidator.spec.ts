@@ -28,6 +28,7 @@ function makeState(overrides: Partial<GameState> = {}): GameState {
     deck: [], waste: [],
     foundations: [[], [], [], []],
     tableau: [[], [], [], [], [], [], []],
+    freeCells: [],
     score: 0, moves: 0, elapsedSeconds: 0,
     drawMode: 1, isComplete: false, history: [],
     ...overrides,

@@ -23,6 +23,7 @@ function makeState(foundationSizes: number[]): GameState {
       Array.from({ length: n }, (_, i) => ({ suit: 'hearts', value: i + 1, faceUp: true }))
     ),
     tableau: [[], [], [], [], [], [], []],
+    freeCells: [],
     score: 0, moves: 0, elapsedSeconds: 0,
     drawMode: 1, isComplete: false, history: [],
   };

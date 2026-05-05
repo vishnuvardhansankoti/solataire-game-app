@@ -38,7 +38,7 @@ export class StateManager {
       const col = next.tableau[from.index ?? 0];
       if (col.length > 0 && !col[col.length - 1].faceUp) {
         col[col.length - 1].faceUp = true;
-        record.flippedCardIndex = from.index;
+        if (from.index !== undefined) record.flippedCardIndex = from.index;
         next.score += this.config.scoring?.flipCard ?? 5;
       }
     }
@@ -111,6 +111,10 @@ export class StateManager {
       case 'stock':
         state.deck.splice(-count, count);
         break;
+      case 'freeCell':
+        // Free cells hold a single card; clear the slot
+        state.freeCells[pile.index ?? 0] = null;
+        break;
     }
   }
 
@@ -127,6 +131,10 @@ export class StateManager {
         break;
       case 'stock':
         state.deck.push(...cards);
+        break;
+      case 'freeCell':
+        // Free cells hold exactly one card; validator already enforces this
+        state.freeCells[pile.index ?? 0] = cards[0];
         break;
     }
   }

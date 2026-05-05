@@ -26,6 +26,12 @@ export class MoveValidator {
         const strategy = getStrategy(rule);
         return strategy.canPlace(cards, topCard);
       }
+      case 'freeCell': {
+        // Only a single card can go to a free cell; slot must be empty
+        if (cards.length !== 1) return false;
+        const cellIndex = to.index ?? 0;
+        return state.freeCells[cellIndex] === null;
+      }
       case 'waste': {
         return false; // cannot manually move to waste
       }
@@ -47,6 +53,9 @@ export class MoveValidator {
       case 'tableau': {
         const t = state.tableau[pile.index ?? 0];
         return t.length > 0 ? t[t.length - 1] : null;
+      }
+      case 'freeCell': {
+        return state.freeCells[pile.index ?? 0] ?? null;
       }
       default:
         return null;

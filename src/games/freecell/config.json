@@ -25,7 +25,7 @@
       "emptyColumnRule": "any",
       "initialCards": "cascading",
       "dealPattern": [7, 7, 7, 7, 6, 6, 6, 6],
-      "topCardFaceUp": true
+      "faceUp": true
     }
   },
   "winCondition": {
