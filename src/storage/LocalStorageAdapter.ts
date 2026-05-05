@@ -1,6 +1,7 @@
 import type { StorageAdapter } from './StorageAdapter';
 
 const NS = 'svelte-solitaire';
+const isBrowser = typeof localStorage !== 'undefined';
 
 function stateKey(gameId: string): string {
   return `${NS}:state:${gameId}`;
@@ -10,6 +11,7 @@ const SETTINGS_KEY = `${NS}:settings`;
 
 export class LocalStorageAdapter implements StorageAdapter {
   save(gameId: string, data: unknown): void {
+    if (!isBrowser) return;
     try {
       localStorage.setItem(stateKey(gameId), JSON.stringify(data));
     } catch {
@@ -18,6 +20,7 @@ export class LocalStorageAdapter implements StorageAdapter {
   }
 
   load(gameId: string): unknown | null {
+    if (!isBrowser) return null;
     try {
       const raw = localStorage.getItem(stateKey(gameId));
       if (raw === null) return null;
@@ -28,6 +31,7 @@ export class LocalStorageAdapter implements StorageAdapter {
   }
 
   clear(gameId: string): void {
+    if (!isBrowser) return;
     try {
       localStorage.removeItem(stateKey(gameId));
     } catch {
@@ -36,6 +40,7 @@ export class LocalStorageAdapter implements StorageAdapter {
   }
 
   loadSettings(): unknown | null {
+    if (!isBrowser) return null;
     try {
       const raw = localStorage.getItem(SETTINGS_KEY);
       if (raw === null) return null;
@@ -46,6 +51,7 @@ export class LocalStorageAdapter implements StorageAdapter {
   }
 
   saveSettings(settings: unknown): void {
+    if (!isBrowser) return;
     try {
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
     } catch {

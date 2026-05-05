@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
+  import { browser } from '$app/environment';
   import { base } from '$app/paths';
   import { GameEngine } from '../engine/GameEngine';
   import { createGameStore } from '../stores/gameState';
@@ -26,12 +27,12 @@
       gameStore.set(engine.newGame({ drawMode: $settings.drawMode }));
     }
     startTimer();
-    document.addEventListener('visibilitychange', handleVisibility);
+    if (browser) document.addEventListener('visibilitychange', handleVisibility);
   });
 
   onDestroy(() => {
     stopTimer();
-    document.removeEventListener('visibilitychange', handleVisibility);
+    if (browser) document.removeEventListener('visibilitychange', handleVisibility);
   });
 
   function startTimer() {
@@ -48,7 +49,7 @@
   }
 
   function handleVisibility() {
-    if (document.hidden) stopTimer(); else startTimer();
+    if (browser && document.hidden) stopTimer(); else startTimer();
   }
 
   function handleNewGame() {
