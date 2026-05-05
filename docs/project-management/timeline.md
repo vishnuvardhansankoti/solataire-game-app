@@ -1,8 +1,8 @@
-# Agent Handoff Timeline — Sprint 1 + Sprint 2
+# Agent Handoff Timeline — Sprint 1 + Sprint 2 + Sprint 3
 
 **Project:** Svelte-Solitaire PWA  
-**Sprint:** 1 + 2  
-**Last Updated:** 2026-05-05
+**Sprint:** 3  
+**Last Updated:** 2026-05-04
 
 ---
 
@@ -25,6 +25,9 @@
 | 12 | Developer | Orchestrator | FreeCell complete — 143 tests, `feature/freecell-implementation` pushed, prerender fix on main | 2026-05-04T22:00:00Z | `src/engine/types.ts`, `GameEngine.ts`, `MoveValidator.ts`, `StateManager.ts`, `src/games/freecell/config.json`, 72 new tests, `PR_SUMMARY.md`, `src/routes/+layout.js` |
 | 13 | Orchestrator | Analyst | Sprint 3 Task 1: Game Selector UI scoping | 2026-05-04T22:20:00Z | — |
 | 14 | Analyst | Architect | `game-selector-acceptance-criteria.md` marked [Final] | 2026-05-04T22:30:00Z | `game-selector-problem-statement.md`, `game-selector-user-stories.md` (6 stories), `game-selector-acceptance-criteria.md` (13 criteria) |
+| 15 | Architect | Developer | ADR-006 approved + GameSelector component design complete | 2026-05-04T22:40:00Z | `ADR-006-game-selector-architecture.md`, `HANDOFF-GS-ARCHITECT.md` |
+| 16 | Developer | QA | Game Selector implemented + 83 tests passing + build clean | 2026-05-04T22:50:00Z | `registry.ts`, `activeGame.ts`, `GameSelector.svelte`, `Header.svelte` (modified), `+page.svelte` (modified), `registry.spec.ts` (12 tests), `PR_SUMMARY-game-selector.md`, `feature/game-selector` pushed |
+| 17 | Orchestrator | QA | Handoff trigger confirmed — QA phase active | 2026-05-04T22:50:00Z | `HANDOFF-GS-QA.md`, `workflow-token.json` updated |
 
 ---
 
