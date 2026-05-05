@@ -29,6 +29,8 @@ export interface GameState {
   waste: Card[];
   foundations: Card[][];
   tableau: Card[][];
+  /** Free cell slots (FreeCell variant). Each slot holds 0 or 1 card. */
+  freeCells: Array<Card | null>;
   score: number;
   moves: number;
   elapsedSeconds: number;

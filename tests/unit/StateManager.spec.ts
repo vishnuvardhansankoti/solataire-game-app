@@ -28,6 +28,7 @@ function baseState(): GameState {
     deck: [], waste: [ACE_H],
     foundations: [[], [], [], []],
     tableau: [[FACE_DOWN, TWO_H], [], [], [], [], [], []],
+    freeCells: [],
     score: 0, moves: 0, elapsedSeconds: 0,
     drawMode: 1, isComplete: false, history: [],
   };
