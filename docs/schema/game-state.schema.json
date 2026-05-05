@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://svelte-solitaire.app/schemas/game-state.v1.json",
+  "title": "GameState",
+  "description": "Serializable runtime state of an in-progress card game session. Stored in localStorage under 'svelte-solitaire:state:{gameId}'.",
+  "type": "object",
+  "required": ["schemaVersion", "gameId", "sessionId", "deck", "waste", "foundations", "tableau", "score", "moves", "elapsedSeconds", "history", "drawMode"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Schema version for forward/backward compatibility detection. Mismatch causes state to be discarded."
+    },
+    "gameId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Game type identifier. Must match an existing game config."
+    },
+    "sessionId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "UUID v4 generated at the start of each new game session for telemetry deduplication."
+    },
+    "deck": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/card" },
+      "description": "Remaining cards in the stock pile (top of array = top of stock)."
+    },
+    "waste": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/card" },
+      "description": "Cards that have been drawn from the stock (top of array = top-most visible card)."
+    },
+    "foundations": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/card" }
+      },
+      "minItems": 1,
+      "description": "Foundation piles. Each sub-array represents one foundation; index 0 = bottom card (Ace)."
+    },
+    "tableau": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/card" }
+      },
+      "minItems": 1,
+      "description": "Tableau columns. Each sub-array = one column; index 0 = bottom card."
+    },
+    "score": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Current game score. Never goes below 0."
+    },
+    "moves": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of valid moves made in this session."
+    },
+    "elapsedSeconds": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Time elapsed (in seconds) during active gameplay. Paused when tab is hidden."
+    },
+    "drawMode": {
+      "type": "integer",
+      "enum": [1, 3],
+      "description": "Number of cards drawn per stock click."
+    },
+    "isComplete": {
+      "type": "boolean",
+      "description": "True if the win condition has been reached."
+    },
+    "history": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/moveRecord" },
+      "description": "Undo history stack. Last item is the most recent move. Popped on undo."
+    }
+  },
+  "$defs": {
+    "card": {
+      "type": "object",
+      "required": ["suit", "value", "faceUp"],
+      "additionalProperties": false,
+      "properties": {
+        "suit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Suit identifier — must match a value in the game config's suits array."
+        },
+        "value": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 52,
+          "description": "Card rank. 1=Ace, 2–10=numeric, 11=Jack, 12=Queen, 13=King."
+        },
+        "faceUp": {
+          "type": "boolean",
+          "description": "Whether the card is face-up (visible to the player)."
+        }
+      }
+    },
+    "pileReference": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["stock", "waste", "foundation", "tableau", "freeCell"],
+          "description": "The category of pile."
+        },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Which pile within the category (e.g., tableau column 0–6). Omitted for stock and waste."
+        }
+      }
+    },
+    "moveRecord": {
+      "type": "object",
+      "required": ["from", "to", "cards", "scoreChange"],
+      "additionalProperties": false,
+      "description": "A reversible record of a single game action.",
+      "properties": {
+        "from": { "$ref": "#/$defs/pileReference" },
+        "to": { "$ref": "#/$defs/pileReference" },
+        "cards": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/card" },
+          "minItems": 1,
+          "description": "Snapshot of the cards involved in this move (pre-move state for undo)."
+        },
+        "scoreChange": {
+          "type": "integer",
+          "description": "Score delta applied by this move. Reversed on undo."
+        },
+        "flippedCardIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "If this move caused a face-down card to flip, records its tableau column index so undo can re-flip it."
+        }
+      }
+    }
+  }
+}

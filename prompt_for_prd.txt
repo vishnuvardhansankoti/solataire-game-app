@@ -1,0 +1,41 @@
+Role: Act as an expert Senior Product Manager and Lead Technical Architect.
+Objective: Generate a comprehensive Product Requirements Document (PRD) for a Progressive Web App (PWA) Solitaire game built with Svelte/SvelteKit, designed for deployment on GitHub Pages.
+Product Overview:
+App Name: [Insert Your App Name, e.g., "Svelte-Solitaire"]
+Game Type: Classic Klondike Solitaire.
+Primary Platform: Web (Mobile-first PWA).
+Hosting: GitHub Pages (Static site hosting).
+Include Generic Card Game Engine capable of loading multiple game types via JSON configuration.
+Requirements to Add:
+Data Model: Define a JSON schema that abstracts game rules (e.g., number of decks, tableau count, building rules, and win conditions).
+Rule Strategy Engine: Specify a decoupled logic layer that validates moves based on the loaded JSON config rather than hard-coded Klondike rules.
+Dynamic Layout Component: Design a responsive Svelte grid system that dynamically renders foundations, tableau piles, and stock based on the JSON layout object.
+State Persistence: Ensure the localStorage implementation can save and resume multiple different game types simultaneously using their gameId.
+Asset Mapping: Requirements for a central asset manager that maps JSON-defined card suits/values to SVG or CSS-based card faces
+
+Please include the following sections in the PRD:
+1. Executive Summary & Vision:
+Define the target user and the core value proposition (e.g., lightweight, offline-capable, ad-free gaming).
+2. User Personas & User Stories:
+Identify 2-3 user personas (e.g., the casual commuter, the offline traveler).
+Write at least 5 core user stories (e.g., "As a player, I want to undo my last move so I can correct a mistake").
+3. Functional Requirements (Game Mechanics):
+Game Logic: Card movement rules (tableau to foundations, building down by alternating colors).
+GameState Management: Requirements for tracking the deck, foundations, tableau, and waste pile.
+Features: "Undo" functionality, score tracking, win animations using svelte/tweens or transitions, and a "New Game" option.
+4. PWA & Technical Requirements:
+Static Generation: Must specify use of @sveltejs/adapter-static for GitHub Pages compatibility.
+Offline Capability: Detail service worker requirements for caching assets and enabling offline play.
+Web App Manifest: Requirements for manifest.json (icons, theme colors, display mode: standalone).
+Data Persistence: Use of localStorage or IndexedDB (via Dexie.js) to save game progress between sessions.
+5. Deployment Strategy (GitHub Pages):
+Outline the CI/CD pipeline using GitHub Actions.
+Include specific configurations for GitHub Pages, such as handling subfolder paths (base URL) and the .nojekyll file.
+6. UI/UX Requirements:
+Mobile-first, responsive design for various screen sizes.
+Drag-and-drop vs. tap-to-move interactions.
+Accessibility (A11y) standards for card visibility.
+7. Success Metrics & Roadmap:
+Define KPIs (e.g., load time, PWA install rate).
+Outline a 3-phase roadmap (MVP, Features, Polish).
+Format the output in clear Markdown with headers, bullet points, and tables where appropriate.

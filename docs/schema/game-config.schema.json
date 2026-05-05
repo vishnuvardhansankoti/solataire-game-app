@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://svelte-solitaire.app/schemas/game-config.v1.json",
+  "title": "GameConfig",
+  "description": "Defines all rules, layout, and asset mapping for a card game type.",
+  "type": "object",
+  "required": ["gameId", "displayName", "version", "decks", "suits", "cardValues", "piles", "winCondition", "layout"],
+  "additionalProperties": false,
+  "properties": {
+    "gameId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Unique kebab-case identifier for the game type. Used as the localStorage namespace key.",
+      "examples": ["klondike", "freecell", "spider"]
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable name shown in the game selector UI.",
+      "examples": ["Klondike Solitaire", "FreeCell", "Spider Solitaire"]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "SemVer version of this config file. Used for save-state schema compatibility checks."
+    },
+    "decks": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4,
+      "description": "Number of standard 52-card decks used in this game."
+    },
+    "suits": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Ordered list of suit identifiers. Maps to asset files in src/assets/suits/{suit}.svg.",
+      "examples": [["hearts", "diamonds", "clubs", "spades"]]
+    },
+    "cardValues": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 1, "maximum": 52 },
+      "minItems": 1,
+      "description": "Ordered list of card values (1 = Ace, 11 = Jack, 12 = Queen, 13 = King)."
+    },
+    "piles": {
+      "type": "object",
+      "description": "Defines all pile types used in this game.",
+      "properties": {
+        "stock": { "$ref": "#/$defs/stockPileConfig" },
+        "waste": { "$ref": "#/$defs/simplePileConfig" },
+        "foundations": { "$ref": "#/$defs/buildingPileConfig" },
+        "tableau": { "$ref": "#/$defs/tableauPileConfig" },
+        "freeCells": { "$ref": "#/$defs/buildingPileConfig" }
+      },
+      "additionalProperties": false
+    },
+    "drawMode": {
+      "type": "object",
+      "description": "Draw mode options (only relevant if a stock pile is defined).",
+      "required": ["options", "default"],
+      "properties": {
+        "options": {
+          "type": "array",
+          "items": { "type": "integer", "enum": [1, 3] },
+          "minItems": 1
+        },
+        "default": { "type": "integer", "enum": [1, 3] }
+      },
+      "additionalProperties": false
+    },
+    "winCondition": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["all-to-foundations", "all-ordered-tableau"],
+          "description": "all-to-foundations: All cards placed on foundations. all-ordered-tableau: All tableau columns sorted."
+        }
+      },
+      "additionalProperties": false
+    },
+    "scoring": {
+      "type": "object",
+      "description": "Score delta values for each game event.",
+      "properties": {
+        "wasteToTableau": { "type": "integer" },
+        "wasteToFoundation": { "type": "integer" },
+        "tableauToFoundation": { "type": "integer" },
+        "foundationToTableau": { "type": "integer" },
+        "flipCard": { "type": "integer" },
+        "timePenaltyInterval": { "type": "integer", "description": "Seconds between time penalties." },
+        "timePenaltyAmount": { "type": "integer", "description": "Score deducted per interval." },
+        "timePenaltyGracePeriod": { "type": "integer", "description": "Seconds before time penalty begins." }
+      },
+      "additionalProperties": false
+    },
+    "layout": {
+      "type": "object",
+      "required": ["type", "topRow", "bottomRows"],
+      "description": "Describes the visual layout of piles on the game board.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Named layout preset identifier.",
+          "examples": ["klondike-standard", "freecell-standard"]
+        },
+        "topRow": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Pile key or 'gap' for a spacer.",
+            "examples": ["stock", "waste", "gap", "foundation", "freeCell"]
+          }
+        },
+        "bottomRows": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Keys of pile types rendered in the main playing area (typically ['tableau'])."
+        }
+      },
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "cardBack": {
+          "type": "string",
+          "description": "Default card back design ID. Maps to src/assets/card-backs/{cardBack}.svg.",
+          "examples": ["classic-blue", "classic-red"]
+        },
+        "cardFaceTheme": {
+          "type": "string",
+          "enum": ["standard", "minimal", "large-print"],
+          "description": "Card face rendering theme."
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "buildRule": {
+      "type": "string",
+      "enum": [
+        "ascending-same-suit",
+        "descending-alternating-color",
+        "descending-same-suit",
+        "any",
+        "none"
+      ],
+      "description": "Identifier for the pile's card placement rule. Must match a registered BuildRuleStrategy."
+    },
+    "stockPileConfig": {
+      "type": "object",
+      "required": ["count", "faceUp"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1 },
+        "initialCards": { "type": "string", "enum": ["remaining", "all", "none"] },
+        "faceUp": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "simplePileConfig": {
+      "type": "object",
+      "required": ["count", "faceUp"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1 },
+        "initialCards": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "type": "string" }] },
+        "faceUp": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "buildingPileConfig": {
+      "type": "object",
+      "required": ["count", "buildRule"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1 },
+        "initialCards": { "oneOf": [{ "type": "integer", "minimum": 0 }, { "type": "string" }] },
+        "buildRule": { "$ref": "#/$defs/buildRule" },
+        "startsWith": { "type": "integer", "description": "Card value required to start this pile (e.g., 1 for Ace-start foundations)." }
+      },
+      "additionalProperties": false
+    },
+    "tableauPileConfig": {
+      "type": "object",
+      "required": ["count", "buildRule"],
+      "properties": {
+        "count": { "type": "integer", "minimum": 1 },
+        "initialCards": { "oneOf": [{ "type": "string", "enum": ["cascading"] }, { "type": "integer" }] },
+        "topCardFaceUp": { "type": "boolean" },
+        "buildRule": { "$ref": "#/$defs/buildRule" },
+        "emptyColumnRule": { "$ref": "#/$defs/buildRule", "description": "Rule for placing on an empty column (defaults to buildRule if omitted)." }
+      },
+      "additionalProperties": false
+    }
+  }
+}

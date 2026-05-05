@@ -1,0 +1,40 @@
+:root {
+  --color-felt: #1a6b3a;
+  --color-felt-dark: #145530;
+  --color-card-bg: #ffffff;
+  --color-card-border: #c8c8c8;
+  --color-card-shadow: rgba(0, 0, 0, 0.25);
+  --color-card-back: #1a3a8b;
+  --color-suit-red: #c0392b;
+  --color-suit-black: #1a1a1a;
+  --color-pile-empty: rgba(255, 255, 255, 0.15);
+  --color-pile-empty-border: rgba(255, 255, 255, 0.35);
+  --color-accent: #f9c74f;
+  --color-text-ui: #ffffff;
+  --color-text-dark: #1a1a1a;
+
+  --card-width: clamp(60px, 10vw, 90px);
+  --card-height: calc(var(--card-width) * 1.4);
+  --card-radius: 6px;
+  --tableau-overlap: calc(var(--card-height) * 0.28);
+  --gap: 8px;
+
+  --transition-snap: 180ms ease-out;
+  --transition-flip: 300ms ease-in-out;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--color-felt);
+  color: var(--color-text-ui);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  overflow: hidden;
+}
+
+#svelte {
+  height: 100%;
+}
