@@ -14,13 +14,14 @@
 | 2 — Design | Architect | ✅ Complete | `docs/architecture/`, `docs/schema/` |
 | 3 — Development | Developer | ✅ Complete | `src/` |
 | 4 — Testing | QA | ✅ Complete | `tests/` |
+| **Sprint 2 — Spider Solitaire** | **Developer** | 🔄 In Progress | `src/games/spider/` |
 
 ---
 
 ## Token Holder
-**Current Agent:** Orchestrator  
-**Phase:** Complete  
-**Trigger to advance:** N/A — All phases complete. Ready for production deployment.
+**Current Agent:** Developer
+**Phase:** Sprint 2 — Spider Solitaire
+**Trigger to advance:** `src/games/spider/config.json` created + unit tests pass → hand to QA
 
 ---
 
