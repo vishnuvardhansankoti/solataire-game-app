@@ -14,14 +14,15 @@
 | 2 — Design | Architect | ✅ Complete | `docs/architecture/`, `docs/schema/` |
 | 3 — Development | Developer | ✅ Complete | `src/` |
 | 4 — Testing | QA | ✅ Complete | `tests/` |
-| **Sprint 2 — Spider Solitaire** | **Developer** | 🔄 In Progress | `src/games/spider/` |
+| **Sprint 2 Task 1 — Spider Solitaire** | **QA** | ✅ Complete | `src/games/spider/` |
+| **Sprint 2 Task 2 — FreeCell** | **Analyst** | 🔄 In Progress | `docs/requirements/freecell/` |
 
 ---
 
 ## Token Holder
-**Current Agent:** Developer
-**Phase:** Sprint 2 — Spider Solitaire
-**Trigger to advance:** `src/games/spider/config.json` created + unit tests pass → hand to QA
+**Current Agent:** Analyst  
+**Phase:** Sprint 2 Task 2 — FreeCell  
+**Trigger to advance:** `docs/requirements/freecell-acceptance-criteria.md` marked [Final] + user stories → hand to Architect
 
 ---
 

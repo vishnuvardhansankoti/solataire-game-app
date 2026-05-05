@@ -1,8 +1,8 @@
-# Agent Handoff Timeline — Sprint 1
+# Agent Handoff Timeline — Sprint 1 + Sprint 2
 
 **Project:** Svelte-Solitaire PWA  
-**Sprint:** 1  
-**Last Updated:** 2026-05-04
+**Sprint:** 1 + 2  
+**Last Updated:** 2026-05-05
 
 ---
 
@@ -16,6 +16,10 @@
 | 3 | Architect | Developer | ADR-001–004 approved + JSON schemas defined | 2026-05-04T00:02:00Z | `ADR-001` through `ADR-004`, `system-architecture.md`, `game-config.schema.json`, `game-state.schema.json`, `HANDOFF-002-architect-to-developer.md` |
 | 4 | Developer | QA | `PR_SUMMARY.md` generated + unit tests authored | 2026-05-04T00:03:00Z | Full `src/` tree, 6 Vitest unit spec files, `HANDOFF-003-developer-to-qa.md`, `PR_SUMMARY.md` |
 | 5 | QA | Orchestrator | `test-results.md` shows 100% pass rate | 2026-05-04T00:04:00Z | `test-plan.md`, `tests/integration/game-engine.spec.ts`, `tests/e2e/game-flow.spec.ts`, `tests/e2e/pwa-offline.spec.ts`, `test-results.md` |
+| 6 | Orchestrator | Developer | Sprint 2 Task 1: Spider Solitaire | 2026-05-04T00:06:00Z | — |
+| 7 | Developer | QA | Spider Solitaire feature complete + 26 new unit tests | 2026-05-05T02:40:00Z | `src/games/spider/config.json`, `src/engine/strategies/DescendingAnySuitStrategy.ts`, `tests/unit/spider-config.spec.ts`, `feature/spider-solitaire` branch |
+| 8 | QA | Orchestrator | Spider Solitaire PR #1 merged to main | 2026-05-05T02:45:00Z | PR #1 + merged commit `ed947b2` |
+| 9 | Orchestrator | Analyst | Sprint 2 Task 2: FreeCell scoping | 2026-05-05T02:45:00Z | `HANDOFF.md` (FreeCell requirements)
 
 ---
 
@@ -23,9 +27,9 @@
 
 | Field | Value |
 |---|---|
-| Current Owner | Orchestrator |
-| Phase | Complete |
-| Next Action | Production deployment (manual `workflow_dispatch` on GitHub Actions) |
+| Current Owner | Analyst |
+| Phase | Sprint 2 Task 2: FreeCell — Discovery |
+| Next Action | Create freecell user stories + acceptance criteria [Final] |
 
 ---
 
