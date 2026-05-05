@@ -11,23 +11,35 @@
 
 | # | Phase | Agent | Status | Blocker |
 |---|---|---|---|---|
-| 1 | Discovery | Analyst | 🔄 In Progress | — |
-| 2 | Design | Architect | ⏳ Queued | Awaiting Analyst [Final] |
-| 3 | Development | Developer | ⏳ Queued | Awaiting ADR approval + schema |
-| 4 | Testing | QA | ⏳ Queued | Awaiting `PR_SUMMARY.md` + unit tests |
+| 1 | Discovery | Analyst | ✅ Complete | — |
+| 2 | Design | Architect | ✅ Complete | — |
+| 3 | Development | Developer | ✅ Complete | — |
+| 4 | Testing | QA | ✅ Complete | — |
 
 ---
 
 ## Completed Today
 
 - [x] PRD authored and stored at `docs/PRD.md`
-- [x] `workflow-token.json` initialized with owner = Analyst
-- [x] `global-workflow-state.md` initialized
-- [x] Sprint status log created
+- [x] `workflow-token.json` initialized and progressed through all 4 phases
+- [x] `global-workflow-state.md` initialized and finalized
+- [x] Analyst: all 5 requirement files + `acceptance-criteria.md` [Final]
+- [x] Architect: ADR-001–004, `system-architecture.md`, 2 JSON schemas
+- [x] Developer: full SvelteKit + TypeScript app (`src/`), CI/CD, 6 Vitest unit test files
+- [x] QA: test plan, 5 integration tests, 2 Playwright E2E test files, `test-results.md` sign-off
+- [x] Orchestrator: `context.md`, `timeline.md`, sprint status finalized
+- [x] Repo pushed to GitHub with `package-lock.json`, `.gitignore`, `README.md`
 
 ## In Progress
 
-- [ ] Analyst: `problem-statement.md`
+_Nothing — Sprint 1 complete._
+
+## Next Sprint Candidates
+
+- [ ] Run manual GitHub Actions deploy to publish to GitHub Pages
+- [ ] Lighthouse audit on deployed URL
+- [ ] Add Spider Solitaire as second game using the generic engine
+- [ ] Add FreeCell support
 - [ ] Analyst: User story files (4 files)
 - [ ] Analyst: `acceptance-criteria.md` → mark [Final] to advance
 
