@@ -21,6 +21,7 @@
 | 8 | QA | Orchestrator | Spider Solitaire PR #1 merged to main | 2026-05-05T02:45:00Z | PR #1 + merged commit `ed947b2` |
 | 9 | Orchestrator | Analyst | Sprint 2 Task 2: FreeCell scoping | 2026-05-05T02:45:00Z | `HANDOFF.md` (FreeCell requirements) |
 | 10 | Analyst | Architect | `freecell-acceptance-criteria.md` marked [Final] | 2026-05-05T02:55:00Z | `freecell-problem-statement.md`, `freecell-user-stories.md` (7 stories), `freecell-acceptance-criteria.md` (13 criteria) |
+| 11 | Architect | Developer | FreeCell schema approved | 2026-05-05T03:05:00Z | `ADR-005-freecell-architecture.md`, `freecell-schema-design.md`, `src/games/freecell/config.json`, updated `game-config.schema.json` |
 
 ---
 
@@ -28,9 +29,9 @@
 
 | Field | Value |
 |---|---|
-| Current Owner | Architect |
-| Phase | Sprint 2 Task 2: FreeCell — Design |
-| Next Action | Create FreeCell config schema (ADR or freecell-config-schema.md), define pile types and strategies |
+| Current Owner | Developer |
+| Phase | Sprint 2 Task 2: FreeCell — Implementation |
+| Next Action | Implement FreeCell strategy + game config + move validation + 26+ unit tests |
 
 ---
 

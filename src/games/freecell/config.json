@@ -1,0 +1,46 @@
+{
+  "gameId": "freecell",
+  "displayName": "FreeCell Solitaire",
+  "version": "1.0.0",
+  "decks": 1,
+  "suits": ["spades", "hearts", "diamonds", "clubs"],
+  "cardValues": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+  "piles": {
+    "foundations": {
+      "count": 4,
+      "buildRule": "ascending-same-suit",
+      "startsWith": 1,
+      "initialCards": 0,
+      "faceUp": true
+    },
+    "freeCells": {
+      "count": 4,
+      "buildRule": "none",
+      "initialCards": 0,
+      "faceUp": true
+    },
+    "tableau": {
+      "count": 8,
+      "buildRule": "descending-alternating-color",
+      "emptyColumnRule": "any",
+      "initialCards": "cascading",
+      "dealPattern": [7, 7, 7, 7, 6, 6, 6, 6],
+      "topCardFaceUp": true
+    }
+  },
+  "winCondition": {
+    "type": "all-to-foundations"
+  },
+  "scoring": {
+    "tableauToFoundation": 10
+  },
+  "layout": {
+    "type": "freecell-standard",
+    "topRow": ["freeCell", "freeCell", "freeCell", "freeCell", "gap", "foundation", "foundation", "foundation", "foundation"],
+    "bottomRows": ["tableau"]
+  },
+  "assets": {
+    "cardBack": "classic-blue",
+    "cardFaceTheme": "standard"
+  }
+}

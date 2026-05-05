@@ -16,14 +16,15 @@
 | 4 — Testing | QA | ✅ Complete | `tests/` |
 | **Sprint 2 Task 1 — Spider Solitaire** | **QA** | ✅ Complete | `src/games/spider/` |
 | **Sprint 2 Task 2 — FreeCell (Analyst)** | **Analyst** | ✅ Complete | `docs/requirements/freecell-*` |
-| **Sprint 2 Task 2 — FreeCell (Design)** | **Architect** | 🔄 In Progress | `docs/architecture/` |
+| **Sprint 2 Task 2 — FreeCell (Architect)** | **Architect** | ✅ Complete | `docs/architecture/ADR-005-freecell-architecture.md`, `src/games/freecell/config.json` |
+| **Sprint 2 Task 2 — FreeCell (Developer)** | **Developer** | 🔄 In Progress | `src/games/freecell/` |
 
 ---
 
 ## Token Holder
-**Current Agent:** Architect  
-**Phase:** Sprint 2 Task 2 — FreeCell Schema Design  
-**Trigger to advance:** FreeCell schema approved (ADR or freecell-config-schema.md) → hand to Developer
+**Current Agent:** Developer  
+**Phase:** Sprint 2 Task 2 — FreeCell Implementation  
+**Trigger to advance:** FreeCell feature complete + 26+ new unit tests (75+ total) + build passing → hand to QA
 
 ---
 

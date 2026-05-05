@@ -190,7 +190,12 @@
         "initialCards": { "oneOf": [{ "type": "string", "enum": ["cascading"] }, { "type": "integer" }] },
         "topCardFaceUp": { "type": "boolean" },
         "buildRule": { "$ref": "#/$defs/buildRule" },
-        "emptyColumnRule": { "$ref": "#/$defs/buildRule", "description": "Rule for placing on an empty column (defaults to buildRule if omitted)." }
+        "emptyColumnRule": { "$ref": "#/$defs/buildRule", "description": "Rule for placing on an empty column (defaults to buildRule if omitted)." },
+        "dealPattern": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1 },
+          "description": "Optional per-column card count for non-standard deals. E.g., Spider [6,6,6,6,5,5,5,5,5,5] or FreeCell [7,7,7,7,6,6,6,6]. If omitted, defaults to column+1 (Klondike pattern)."
+        }
       },
       "additionalProperties": false
     }
