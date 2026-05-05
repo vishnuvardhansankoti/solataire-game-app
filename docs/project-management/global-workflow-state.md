@@ -17,14 +17,16 @@
 | **Sprint 2 Task 1 — Spider Solitaire** | **QA** | ✅ Complete | `src/games/spider/` |
 | **Sprint 2 Task 2 — FreeCell (Analyst)** | **Analyst** | ✅ Complete | `docs/requirements/freecell-*` |
 | **Sprint 2 Task 2 — FreeCell (Architect)** | **Architect** | ✅ Complete | `docs/architecture/ADR-005-freecell-architecture.md`, `src/games/freecell/config.json` |
-| **Sprint 2 Task 2 — FreeCell (Developer)** | **Developer** | 🔄 In Progress | `src/games/freecell/` |
+| **Sprint 2 Task 2 — FreeCell (Developer)** | **Developer** | ✅ Complete | `src/games/freecell/`, `feature/freecell-implementation` |
+| **Sprint 3 Task 1 — Game Selector (Analyst)** | **Analyst** | ✅ Complete | `docs/requirements/game-selector-*.md` |
+| **Sprint 3 Task 1 — Game Selector (Architect)** | **Architect** | 🔄 In Progress | `docs/architecture/ADR-006-*.md` |
 
 ---
 
 ## Token Holder
-**Current Agent:** Developer  
-**Phase:** Sprint 2 Task 2 — FreeCell Implementation  
-**Trigger to advance:** FreeCell feature complete + 26+ new unit tests (75+ total) + build passing → hand to QA
+**Current Agent:** Architect  
+**Phase:** Sprint 3 Task 1 — Game Selector UI (Architecture)  
+**Trigger to advance:** ADR-006 approved + GameSelector component design + schema changes defined → hand to Developer
 
 ---
 
