@@ -1,6 +1,6 @@
 # Global Workflow State
 **Project:** Svelte-Solitaire PWA  
-**Sprint:** 1  
+**Sprint:** 3  
 **Initialized:** 2026-05-04  
 **Orchestrator Mode:** One-Go Autonomous
 
@@ -17,14 +17,18 @@
 | **Sprint 2 Task 1 — Spider Solitaire** | **QA** | ✅ Complete | `src/games/spider/` |
 | **Sprint 2 Task 2 — FreeCell (Analyst)** | **Analyst** | ✅ Complete | `docs/requirements/freecell-*` |
 | **Sprint 2 Task 2 — FreeCell (Architect)** | **Architect** | ✅ Complete | `docs/architecture/ADR-005-freecell-architecture.md`, `src/games/freecell/config.json` |
-| **Sprint 2 Task 2 — FreeCell (Developer)** | **Developer** | 🔄 In Progress | `src/games/freecell/` |
+| **Sprint 2 Task 2 — FreeCell (Developer)** | **Developer** | ✅ Complete | `src/games/freecell/`, `feature/freecell-implementation` |
+| **Sprint 3 Task 1 — Game Selector (Analyst)** | **Analyst** | ✅ Complete | `docs/requirements/game-selector-*.md` |
+| **Sprint 3 Task 1 — Game Selector (Architect)** | **Architect** | ✅ Complete | `docs/architecture/ADR-006-game-selector-architecture.md` |
+| **Sprint 3 Task 1 — Game Selector (Developer)** | **Developer** | ✅ Complete | `src/components/GameSelector.svelte`, `src/games/registry.ts`, `feature/game-selector` |
+| **Sprint 3 Task 1 — Game Selector (QA)** | **QA** | 🔄 In Progress | `docs/project-management/HANDOFF-GS-QA.md` |
 
 ---
 
 ## Token Holder
-**Current Agent:** Developer  
-**Phase:** Sprint 2 Task 2 — FreeCell Implementation  
-**Trigger to advance:** FreeCell feature complete + 26+ new unit tests (75+ total) + build passing → hand to QA
+**Current Agent:** QA  
+**Phase:** Sprint 3 Task 1 — Game Selector UI (Testing)  
+**Trigger to advance:** `test-results-game-selector.md` shows 100% pass on all 13 ACs + ≥ 15 new unit tests → hand to Orchestrator
 
 ---
 
